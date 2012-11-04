@@ -34,9 +34,9 @@ static float SC_exp10(float v) {
     return pow(10.f, v);
 }
 
-static float SC_fract(float v, int *iptr) {
+static float SC_fract(float v, float *iptr) {
     int i = (int)floor(v);
-    iptr[0] = i;
+    iptr[0] = (float)i;
     return fmin(v - i, 0x1.fffffep-1f);
 }
 
@@ -518,8 +518,8 @@ static RsdSymbolTable gSyms[] = {
     { "_Z15rsMatrixInverseP12rs_matrix4x4", (void *)&SC_MatrixInverse_4x4, true },
     { "_Z24rsMatrixInverseTransposeP12rs_matrix4x4", (void *)&SC_MatrixInverseTranspose_4x4, true },
     { "_Z17rsMatrixTransposeP12rs_matrix4x4", (void *)&SC_MatrixTranspose_4x4, true },
-    { "_Z17rsMatrixTransposeP12rs_matrix4x4", (void *)&SC_MatrixTranspose_3x3, true },
-    { "_Z17rsMatrixTransposeP12rs_matrix4x4", (void *)&SC_MatrixTranspose_2x2, true },
+    { "_Z17rsMatrixTransposeP12rs_matrix3x3", (void *)&SC_MatrixTranspose_3x3, true },
+    { "_Z17rsMatrixTransposeP12rs_matrix2x2", (void *)&SC_MatrixTranspose_2x2, true },
 
     // RS Math
     { "_Z6rsRandi", (void *)&SC_randi, true },
